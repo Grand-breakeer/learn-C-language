@@ -1,10 +1,10 @@
-#define _CRT_SECURE_NO_WARNINGS 1
-#include <stdio.h>
-#include<string.h>
-#include<windows.h>
-#include<time.h>
-#include<stdlib.h>
-#include<math.h>
+//#define _CRT_SECURE_NO_WARNINGS 1
+//#include <stdio.h>
+//#include<string.h>
+//#include<windows.h>
+//#include<time.h>
+//#include<stdlib.h>
+//#include<math.h>
 
 //拷贝数组
 //int main()
@@ -243,15 +243,78 @@
 //	return 0;
 //}
 
+//函数每执行一次num+1
+//void Add(int* p)
+//{
+//	(*p)++;
+//}
+//int main()
+//{
+//	int num = 0;
+//	Add(&num);
+//	printf("%d\n", num);
+//	return 0;
+//}
 
+//函数的嵌套调用和链式访问(不能嵌套定义)
+//int test3()
+//{
+//	printf("hehe\n");
+//}
+//int test2()
+//{
+//	test3();
+//	return 0;
+//}
+//int main()
+//{
+//	test2();
+//	return 0;
+//}
+//函数的链式访问
+//int main()
+//{
+//	int len = strlen("abc");
+//	printf("%d\n", len);
+//
+//	printf("%d\n", strlen("abc"));
+//	return 0;
+//}
 
+//int main()
+//{
+//	char arr1[20] = { 0 };
+//	char arr2[] = "bit";
+//	printf("%s\n", strcpy(arr1, arr2));
+//	return 0;
+//}
 
+//int main()
+//{
+//	//printf返回的是打印在屏幕上字符的个数
+//	printf("%d", printf("%d", printf("%d", 43)));
+//	return 0;
+//}
 
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	//函数的声明--告知电脑有这样一个函数
+//	int Add(int x, int y);
+//	int c = Add(a, b);
+//	printf("%d\n", c);
+//	return 0;
+//}
+////函数的定义
+//int Add(int x,int y)
+//{
+//	return (x + y);
+//}
+ 
 
-
-
-
-
+//引用人工创建的头文件#include "***.h"
+//函数声明一般包含在头文件中
 
 
 
