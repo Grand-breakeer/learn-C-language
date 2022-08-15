@@ -1,10 +1,10 @@
-#define _CRT_SECURE_NO_WARNINGS 1
-#include <stdio.h>
-#include<string.h>
-#include<windows.h>
-#include<time.h>
-#include<stdlib.h>
-#include<math.h>
+//#define _CRT_SECURE_NO_WARNINGS 1
+//#include <stdio.h>
+//#include<string.h>
+//#include<windows.h>
+//#include<time.h>
+//#include<stdlib.h>
+//#include<math.h>
 
 //int my_strlen(char* str)
 //{
@@ -69,4 +69,69 @@
 //
 //}
 
-// 
+//求1729每位数字之和
+//递归
+//int DigitSum(int n)
+//{
+//	int a = n % 10;
+//	int b = n / 10;
+//	if (b > 0)
+//	{
+//		return a + DigitSum(b);
+//	}
+//	else
+//	{
+//		return a;
+//	}
+//}
+//
+//int main()
+//{
+//	int num = 1729;
+//	printf("%d", DigitSum(num));
+//	return 0;
+//}
+
+//迭代
+//int main()
+//{
+//	int a = 1729;
+//	int b = 0;
+//	int c = 0;
+//	while (a > 0)
+//	{
+//		c = a % 10;
+//		b += c;
+//		a = a / 10;
+//	}
+//	printf("%d", b);
+//	return 0;
+//}
+
+
+//n的k次方
+//double Pow(int n, int k)
+//{
+//	if (k > 0)
+//	{
+//		return n*Pow(n, k-1);
+//	}
+//	else if (k == 0)
+//	{
+//		return 1.0;
+//	}
+//	else 
+//	{
+//		
+//		return 1.0 / ( Pow(n, -k));
+//	}
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	int k = 0;
+//	scanf("%d %d", &n, &k);
+//	printf("%lf",Pow(n, k));
+//	return 0;
+//}
