@@ -1,10 +1,10 @@
-//#define _CRT_SECURE_NO_WARNINGS 1
-//#include <stdio.h>
-//#include<string.h>
-//#include<windows.h>
-//#include<time.h>
-//#include<stdlib.h>
-//#include<math.h>
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include<string.h>
+#include<windows.h>
+#include<time.h>
+#include<stdlib.h>
+#include<math.h>
 
 
 /*
@@ -126,5 +126,97 @@
 //		a = a >> 1;
 //	}
 //	printf("%d", count);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int a = 13;
+//	int b = 31;
+//	a = a | (1<<4);//改变二进制位某一位的数
+//	printf("%d", a);
+//	a = a & b;
+//	printf("%d", a);
+//	return 0;
+//}
+
+//4.赋值操作符
+
+//= += -= *= /= >>= <<= %=
+
+//int main()
+//{
+//	int a = 10;
+//	a + 100 = a;
+//	printf("%d", a);
+//	return 0;
+//}
+
+
+//5.单目操作符（单目操作符只有一个操作数)
+
+//（1）！逻辑反操作
+
+//int main()
+//{
+//	int flag = 0;
+//	if (flag)
+//	{
+//		printf("hehe\n");
+//	}
+//	if (!flag)
+//	{
+//		printf("haha\n");
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = 10;
+//	a = -a;
+//	printf("%d", a);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = 10;
+//	long long arr[10] = { 0 };
+//	printf("%d\n", sizeof(arr));//单位是字节
+//	/*printf("%d\n", sizeof(a));
+//	printf("%d\n", sizeof(int));
+//	printf("%d\n", sizeof a);*/
+//	//证明sizeof是一个操作符不是函数
+//
+//	return 0;
+//}
+
+//int main()
+//{
+//	short s =5;
+//	int a = 10;
+//	printf("%d\n", sizeof(s = a + 2));//sizeof中的表达式不参与运算，它只在编译期间运行
+//	printf("%d\n", s);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = -1;
+//	int b = ~a;
+//	printf("%d", b);//~按二进制位取反
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	//++前置先++后使用
+//	//后置先使用后++
+//	//--同理
+//
 //	return 0;
 //}
