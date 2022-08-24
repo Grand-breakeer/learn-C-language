@@ -220,3 +220,117 @@
 //
 //	return 0;
 //}
+
+//6.取地址操作符
+//int main()
+//{
+//	int a = 10;
+//	printf("%p\n", &a);//&----取地址操作符
+//	int *pa = &a;//pa是用来存放地址的-pa就是个指针变量
+//	*pa = 20;//*--解引用操作符--间接访问操作符
+//	printf("%d\n", a);//20
+//	return 0;
+//}
+
+
+//7.强制类型转换
+//int main()
+//{
+//	int a = (int)3.14;
+//	printf("%d\n", a);
+//	return 0;
+//}
+
+//void test1(int arr[])
+//{
+//	printf("%d\n", sizeof(arr));
+//}
+//void test2(char ch[])
+//{
+//	printf("%d\n", sizeof(ch));
+//}
+//int main()
+//{
+//	int arr[10] = { 0 };
+//	char ch[10] = { 0 };
+//	printf("%d\n", sizeof(arr));
+//	printf("%d\n", sizeof(ch));
+//	test1(arr);
+//	test2(ch);
+//	return 0;
+//}
+
+//8.关系操作符
+//int main()
+//{
+//	int a = 3;
+//	int b = 5;
+//	if(a==b)
+//		if(a!=b)
+//			if(a>=b)
+//				if(a<=b)
+//					if(a<b)
+//						if(a>b)
+//	return 0;
+//}
+
+//=赋值   ==判断相等
+
+//==
+
+//比较两个字符串相等不能用等号用strcmp
+
+
+//9.逻辑与   逻辑或
+//int main()
+//{
+//	int a = 1;
+//	int b = 0;
+//	if (a && !b)
+//	/*if(a||b)*/
+//	{
+//		printf("hehe");
+//	}
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	/*int i = 0, a = 0, b = 2, c = 3, d = 4;*/
+//	int i = 0, a = 1, b = 2, c = 3, d = 4;
+//	/*i = a++ && ++b && d++;*///从左到右出现0后面均不算
+//	i = a++ || ++b || d++;
+//
+//	printf("a=%d\nb=%d\nc=%d\nd=%d\n", a, b, c, d);//1234
+//	return 0;
+//}
+
+//10.条件操作符（三目操作符）
+//int main()
+//{
+//	int a = 3;
+//	int b = 0;
+//	/*if (a > 5)
+//	{
+//		b = 1;
+//	}
+//	else
+//	{
+//		b = -1;
+//	}*/
+//	b = (a > 5 ? 1 : -1);
+//	return 0;
+//}
+
+//11.逗号表达式
+int main()
+{
+	int a = 3;
+	int b = 5;
+	int c = 0;
+	//逗号表达式从左到右一次计算，但是整个表达式结果是最后一个表达式的结果
+	int d = (c = 5, a = c + 3, b = a - 4, c += 5);
+	printf("%d\n", d);
+	return 0;
+}
