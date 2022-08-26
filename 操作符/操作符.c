@@ -1,10 +1,10 @@
-#define _CRT_SECURE_NO_WARNINGS 1
-#include <stdio.h>
-#include<string.h>
-#include<windows.h>
-#include<time.h>
-#include<stdlib.h>
-#include<math.h>
+//#define _CRT_SECURE_NO_WARNINGS 1
+//#include <stdio.h>
+//#include<string.h>
+//#include<windows.h>
+//#include<time.h>
+//#include<stdlib.h>
+//#include<math.h>
 
 
 /*
@@ -380,7 +380,7 @@
 //	int price;
 //};
 //
-//int main()
+//int main() 
 //{
 //	int num = 10;
 //	struct Book b = { "C语言","c191918127",55 };
@@ -391,7 +391,7 @@
 //	printf("价格：%d\n", pb->price);
 //
 //	//printf("书名：%s\n", (*pb).name);
-//	//printf("书号：%s\n", (*pb).id);//结构体变量名.成员名
+//	//printf( "书号：%s\n", (*pb).id);//结构体变量名.成员名
 //	//printf("价格：%d\n", (*pb).price);
 //
 //	//printf("书名：%s\n", b.name);
@@ -432,5 +432,55 @@
 //	//11111111111111111111111110000001-补码
 //	//10000000000000000000000001111111-原码
 //	printf("%d\n", c);
+//	return 0;
+//}
+
+
+//算数转换
+
+
+//操作符属性
+//1.操作符的优先级
+
+
+//int main()
+//{
+//	int a = 4;
+//	int b = 5;
+//	int c = a + b * 7;//优先级决定运算顺序
+//	int d = a + b + c;//结合性决定顺序L-R从左向右
+//	//还有一条属性是否控制求值顺序
+//	return 0;
+//}
+
+
+//一些问题表达式（无法确定正确的计算路径）
+//int main()
+//{
+//	int a, b, c, d, e, f;
+//	int h = a * b + c * d + e * f;//计算顺序不确定
+//	int i = c + --c;//关键在于加好前面的c什么时候准备好
+//	return 0;
+//}
+
+//int fun()
+//{
+//	static int count = 1;
+//	return ++count;
+//}
+//
+//int main()
+//{
+//	int answer;
+//	answer = fun() - fun() * fun();//未知这三个函数谁先调用
+//	printf("%d\n", answer);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int i = 1;
+//	int ret = (++i) + (++i) + (++i);//12先算三个++i再计算三个的和
+//	printf("%d\n", ret);
 //	return 0;
 //}
