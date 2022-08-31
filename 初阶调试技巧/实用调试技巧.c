@@ -1,10 +1,10 @@
-#define  _CRT_SECURE_NO_WARNINGS	
-#include <stdio.h>
-#include<string.h>
-#include<windows.h>
-#include<time.h>
-#include<stdlib.h>
-#include<math.h>
+//#define  _CRT_SECURE_NO_WARNINGS	
+//#include <stdio.h>
+//#include<string.h>
+//#include<windows.h>
+//#include<time.h>
+//#include<stdlib.h>
+//#include<math.h>
 
 //发现错误---定位错误---确定错误原因---提出纠错方法---改正从新测试
 
@@ -170,5 +170,48 @@
 //		printf("hehe\n");
 //	}
 //	//代码运行结果--死循环
+//	return 0;
+//}
+
+//预防发生错误
+//通过编码的技巧，减少错误
+//使用 尽量使用sonst 养成良好的编码风格 assert 添加必要的注释 避免编码的陷阱
+
+//模拟1实现一个strcpy
+
+//写得不好
+//void my_strcpy(char* dest, char* src)
+//{
+//	while (*src != '\0')
+//	{
+//		*dest = *src;
+//		dest++;
+//		src++;
+//	}
+//	*dest = *src;
+//}
+//void my_strcpy(char* dest, char* src)
+//{
+//	while (*src != '\0')
+//	{
+//		*dest++ = *src++;
+//	}
+//	*dest = *src;
+//}
+//void my_strcpy(char* dest, char* src)
+//{
+//	while (*dest++ = *src++)//这一步既copy了也赋值了
+//	{
+//		;
+//	}
+//}
+//
+//int main()
+//{
+//	char arr[20] = "xxxxxxxxx";
+//	char arr2[] = "hello";
+//
+//	my_strcpy(arr, arr2);
+//	printf("%s\n", arr);
 //	return 0;
 //}
