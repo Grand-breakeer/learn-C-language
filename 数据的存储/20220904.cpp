@@ -202,3 +202,56 @@
 //	//10000000000000000000000000001010
 //	return 0;
 //}
+
+//int main()
+//{
+//	unsigned int i;
+//	for (i = 9; i >= 0; i--)
+//	{
+//		printf("%d\n", i);
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	char  a[1000];
+//	int i;
+//	for (i = 0; i < 1000; i++)
+//	{ 
+//		a[i] = -1 - i;
+//		
+//	}
+//	printf("%d", strlen(a));
+//	//记住0到127到-128到-1的循环
+//	return 0;
+//}
+
+//int main()
+//{
+//	unsigned char i = 0;
+//	for (i = 0; i <= 255; i++)
+//	{
+//		printf("hello world\n");
+//		printf("%d\n", i);
+//		/*if (i == 255)
+//		{
+//			break;
+//		}*/
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int n = 9;
+//
+//	float* pfloat = (float*)&n;
+//	printf("%d\n", n);
+//	printf("%f\n", *pfloat);
+//
+//	*pfloat = 9.0;
+//	printf("%d\n", n);
+//	printf("%f\n", *pfloat);
+//	return 0;
+//}
