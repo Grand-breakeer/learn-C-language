@@ -237,3 +237,77 @@
 //	printf("%s\n", arr);
 //	return 0;
 //}
+
+//int main()
+//{
+//	int line = 0;
+//	scanf("%d", &line);
+//	int i = 0;
+//	//上
+//	for (i = 0; i < line; i++)
+//	{
+//		//打印空格
+//		int j = 0;
+//		for (j = 0; j < line - 1 - i; j++)
+//		{
+//			printf(" ");
+//		}
+//
+//		//打印*
+//		for (j = 0; j < 2 * i + 1; j++)
+//		{
+//			printf("*");
+//		}
+//		printf("\n");
+//	}
+//	//下
+//	for (i = 0; i < line - 1; i++)
+//	{
+//		//空格
+//		int j = 0;
+//		for (j = 0; j <= i; j++)
+//		{
+//			printf(" ");
+//		}
+//		//*
+//		for (j = 0; j < 2 * (line - 1 - i)-1; j++)
+//		{
+//			printf("*");
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
+//int sum(int x)
+//{
+//	while (x > 1)
+//	{
+//		return 2 + sum(x - 1);
+//	}
+//	return 1;
+//}
+//
+//int main()
+//{
+//	int m = 0;
+//	scanf("%d", &m);
+//	
+//	printf("%d",sum(m));
+//	return 0;
+//}
+
+int main()
+{
+	int money = 0;
+	scanf("%d", &money);
+	int total = money;
+	int empty = money;
+	while (empty >= 2)
+	{
+		total += empty/2;
+		empty = empty / 2;
+	}
+	printf("%d\n", total);
+	return 0;
+}
