@@ -357,18 +357,137 @@
 //	void (*pt)(char*) = &test;
 //}
 
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//
+//int main()
+//{
+//	//int(*pf)(int, int) = &Add;//pf就是函数指针的变量
+//	int(*pf)(int, int) = Add;
+//	//int ret=(*pf)(3, 5);//运用函数指针调用其所指向的函数
+//	int ret = pf(3, 5);
+//	printf("%d\n", ret);
+//
+//	return 0;
+//}
+
+
+//(*(void(*)())0)();
+//将零强制转换为函数指针类型
+//调用零地址处的函数
+//该函数无参数，返回类型是void
+//1.void(*)()--函数指针类型
+//2.（void（*）（））0--对零进行强制类型转换，被解释为一个函数地址
+//3.*（void（*）（））0-对零地址处函数解引用
+//4.（*（void（*）（））0）（）--调用0地址函数
+//《C陷阱和缺陷》
+
+//void(*signal(int , void(*)(int)))(int);
+// typedef--对类型进行重定义
+// typedef void（*pfun_t)(int);//对void（*）（int）的函数指针类型重命名pfun_t
+// pfun_t(int,pfun_t);
+// 
+// void(*）(int)  signal(int , void(*)(int));
+//signal（）是一个函数它的参数有int 和一个函数指针类型它的返回值是指针该函数指针指向一个参数int返回值为void的函数
+// signal函数的返回类型也是一个函数指针
+// 该函数指针指向一个参数为int 返回值为void的函数
+// signal是一个函数声明
+//
+//
+//int main()
+//{
+//	
+//	return 0;
+//}
+
+//函数指针数组
+// 存放函数指针的数组
+// 
+//整型指针int *
+//整型指针数组int*arr[5];
+
+
 int Add(int x, int y)
 {
 	return x + y;
 }
 
+int Sub(int x, int y)
+{
+	return x - y;
+}
+
+int Mul(int x, int y)
+{
+	return x * y;
+}
+
+int Div(int x, int y)
+{
+	return x / y;
+}
+
+void menu()
+{
+	printf("******************************\n");
+	printf("*********1.add    2.sub*******\n");
+	printf("*********3.mul    4.div*******\n");
+	printf("************0.exit************\n");
+	printf("******************************\n");
+}
+
+
 int main()
 {
-	//int(*pf)(int, int) = &Add;//pf就是函数指针的变量
-	int(*pf)(int, int) = Add;
-	//int ret=(*pf)(3, 5);//运用函数指针调用其所指向的函数
-	int ret = pf(3, 5);
-	printf("%d\n", ret);
+	//int(*pf1)(int, int) = Add;
+	//int(*pf2)(int, int) = Sub;
+	//int(*pfArr[2])(int, int) = { Add,Sub };//pfArr就是函数指针数组
+	//计算器-计算整型变量的加减乘除
+	int input = 0;
+	do {
+		menu();
+		
+		int x = 0;
+		int y = 0;
+		int ret = 0;
+		printf("请选择:>");
+		scanf("%d", &input);
+		switch (input)
+		{
+		case 1:
+			printf("请输入两个操作数:>");
+			scanf("%d %d", &x, &y);
+			ret = Add(x, y);
+			printf("%d\n",ret);
+			break;
+		case 2:
+			printf("请输入两个操作数:>");
+			scanf("%d %d", &x, &y);
+			ret = Sub(x, y);
+			printf("%d\n", ret);
+			break;
+		case 3:
+			printf("请输入两个操作数:>");
+			scanf("%d %d", &x, &y);
+			ret = Mul(x, y);
+			printf("%d\n", ret);
+			break;
+		case 4:
+			printf("请输入两个操作数:>");
+			scanf("%d %d", &x, &y);
+			ret = Div(x, y);
+			printf("%d\n", ret);
+			break;
+		case 0:
+			printf("退出程序\n");
+			break;
+		default:
+			printf("输入错误，请重新输入!\n");
+			break;
+		}
 
+	} while (input);
 	return 0;
 }
