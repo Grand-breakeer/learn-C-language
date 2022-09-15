@@ -6,6 +6,7 @@
 #include<stdlib.h>
 #include<math.h>
 #include<assert.h>
+#include<stdlib.h>
 
 //字符指针
 
@@ -673,3 +674,221 @@
 //	} while (input);
 //	return 0;
 //}
+
+//qsort函数的使用（排序）
+//冒泡排序算法
+//void bubble_sort(int arr[], int sz)
+//{
+//	int i = 0;
+//	for (i = 0; i < sz - 1; i++)
+//	{
+//		int j = 0;
+//		for (j = 0; j <sz-1-i ; j++)
+//		{
+//			if (arr[j] > arr[j + 1])
+//			{
+//				//交换
+//				int tmp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = tmp;
+//			}
+//		}
+//	}
+//}
+//
+//void print_arr(int arr[], int sz)
+//{
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//}
+//
+//int main()
+//{
+//	//升序
+//	int arr[10] = { 9,8,7,6,5,4,3,2,1,0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	print_arr(arr, sz);
+//	bubble_sort(arr, sz);
+//	print_arr(arr, sz);
+//
+//	return 0;
+//}
+
+/*利用qsort排序*/
+//可排序对象
+/*整型数据，字符串数据，结构体数据*/
+
+//void qsort(void* base, size_t num, size_t size,int (*compar)(const void*, const void*));
+//对这四个参数的解释
+//base中存放的是待排序数据中第一个对象的地址
+//待排序的数据元素的个数
+//size代表每个元素的字节大小
+//compare比较待排序数据中两个元素的函数
+//void print_arr(int arr[], int sz)
+//{
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//}
+//
+//int cmp_int(const void* e1, const void* e2)
+//{
+//	return *(int*)e1-*(int*)e2;
+//}
+//
+//int main()
+//{
+//	int arr[] = { 9,8,7,6,5,4,3,2,1,0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//
+//	qsort(arr, sz, sizeof(arr[0]), cmp_int);
+//	print_arr(arr, sz);
+//	return 0;
+//}
+
+//使用qsort函数排序结构体数据
+
+//struct Stu
+//{
+//	char name[20];
+//	int age;
+//};
+//
+//int sort_by_age(const void* e1, const void* e2)
+//{
+//	return ((struct Stu*)e1)->age - ((struct Stu*)e2)->age;
+//}
+//
+//int sort_by_name(const void* e1, const void* e2)
+//{
+//	return strcmp(((struct Stu*)e1)->name, ((struct Stu*)e2)->name);
+//}
+//
+//void test2()
+//{
+//	struct Stu s[] = { {"zhangsan",30},{"lisi",34},{"wangwu",20} };
+//
+//	int sz = sizeof(s) / sizeof(s[10]);
+//	//按照年龄来排序
+//	qsort(s, sz, sizeof(s[0]), sort_by_age);
+//	//按照名字排序
+//	qsort(s, sz, sizeof(s[0]), sort_by_name);
+//
+//}
+//
+//int main()
+//{
+//	test2();
+//	return 0;
+//}
+
+//模仿qsort实现一个冒泡排序的通用算法
+
+//void Swap(char*buf1, char*buf2, int width)
+//{
+//	int i = 0;
+//	for (i = 0; i < width; i++)
+//	{
+//		char tmp = *buf1;
+//		*buf1 = *buf2;
+//		*buf2 = tmp;
+//		buf1++;
+//		buf2++;
+//	}
+//	
+//}
+//
+//int cmp_int(const void* e1, const void* e2)
+//{
+//	return *(int*)e1-*(int*)e2;
+//}
+//
+//void bubble_sort(void* base,int sz,int width,int (*cmp)(const void*e1,const void*e2))
+//{
+//	int i = 0;
+//	//趟数
+//	for (i = 0; i < sz - 1; i++)
+//	{
+//		//一趟排序
+//		int j = 0;
+//		for (j = 0; j < sz - 1; j++)
+//		{
+//			if (cmp((char*)base+j*width,(char*)base+(j+1)*width ) > 0)
+//			{
+//				//交换
+//				Swap((char*)base + j * width, (char*)base + (j + 1) * width, width);
+//			}
+//		}
+//	}
+//}
+
+//void print_arr(int arr[], int sz)
+//{
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//}
+
+
+//int main()
+//{
+//	
+//	int arr[] = { 9,8,7,6,5,4,3,2,1,0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	bubble_sort(arr, sz, sizeof(arr[10]), cmp_int);
+//	print_arr(arr, sz);
+//	return 0;
+//}
+
+//struct Stu
+//{
+//	char name[20];
+//	int age;
+//};
+//
+//int sort_by_age(const void* e1, const void* e2)
+//{
+//	return (((struct Stu*)e1)->age - ((struct Stu*)e2)->age);
+//}
+//
+//void test2()
+//{
+//	struct Stu s[] = { {"zhangsan",30},{"lisi",34},{"wangwu",20} };
+//
+//	int sz = sizeof(s) / sizeof(s[10]);
+//	//按照年龄来排序
+//	bubble_sort(s, sz, sizeof(s[0]), sort_by_age);
+//	//按照名字排序
+//	//qsort(s, sz, sizeof(s[0]), sort_by_name);
+//	printf("%d", s[0].age);
+//
+//}
+//
+//int main()
+//{
+//	test2();
+//	
+//	return 0;
+//}
+
+
+int main()
+{
+	int a = 10;
+	char ch = 'w';
+	void* p = &a;//无具体类型
+	p = &ch;
+	*p;//无法解引用需要转换为指定类型指针后解引用
+	//p++;//需要转换为对应类型的指针解引用
+	return 0;
+}
