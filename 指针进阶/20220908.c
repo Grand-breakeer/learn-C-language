@@ -881,14 +881,193 @@
 //	return 0;
 //}
 
+//
+//int main()
+//{
+//	int a = 10;
+//	char ch = 'w';
+//	void* p = &a;//无具体类型
+//	p = &ch;
+//	*p;//无法解引用需要转换为指定类型指针后解引用
+//	//p++;//需要转换为对应类型的指针解引用
+//	return 0;
+//}
 
-int main()
-{
-	int a = 10;
-	char ch = 'w';
-	void* p = &a;//无具体类型
-	p = &ch;
-	*p;//无法解引用需要转换为指定类型指针后解引用
-	//p++;//需要转换为对应类型的指针解引用
-	return 0;
-}
+
+//int main()
+//{
+	////一维数组
+	//int a[] = { 1,2,3,4 };
+	//printf("%d\n", sizeof(a));//16
+	///*sizeof（数组名）-数组名表示整个数组-计算整个数组大小
+	//&数组名表示的是整个数组，取出整个数组地址
+	//除此之外，数组名都是首元素地址*/
+
+	//printf("%d\n", sizeof(a + 0));//4
+	///*a+0是第一个元素的地址sizeof（a+0）计算的是地址的大小*/
+
+	//printf("%d\n", sizeof(*a));//4
+	///*（*a）是数组的第一个元素  sizeof（*a）计算的是数组第一个元素的大小*/
+
+	//printf("%d\n", sizeof(a + 1));//4
+	///*a+1是第二个元素的地址，sizeof（a+1）计算的是地址的大小*/
+
+	//printf("%d\n", sizeof(a[1]));//4
+	///*计算的是第二个元素的大小*/
+
+
+	//printf("%d\n", sizeof(&a));//4
+	///*&a虽然是数组的地址，但也是地址，sizeof（&a）计算的是一个地址的大小*/
+
+	//printf("%d\n", sizeof(*&a));//16
+	///*&a---int（*p）[4]=&a  取出的是整个数组  计算的是整个数组的大小*/
+
+	//printf("%d\n", sizeof(&a + 1));//4
+	///*&a+1是跳过整个数组之后的地址只要是地址就是4个或者8个byte*/
+
+	//printf("%d\n", sizeof(&a[0]));//4
+	///*元素的地址*/
+
+	//printf("%d\n", sizeof(&a[0] + 1));//4
+	///*元素的地址*/
+
+	//字符数组
+	//char arr[] = { 'a','b','c','d','e','f' };
+	//char arr2[] = "abcdef";
+	//printf("%d\n", sizeof(arr2));//7
+	///*字符串结束的标志是\0会被算作一个字节*/
+
+	//printf("%d\n", sizeof(arr));//6
+	///*整个数组的大小，一个字符大小是一个字节*/
+
+	//printf("%d\n", sizeof(arr + 0));//4
+	///*首元素的地址大小，无论数据类型如何它的地址都是4/8*/
+
+	//printf("%d\n", sizeof(*arr));//1
+	///*首元素的大小*/
+
+	//printf("%d\n", sizeof(arr[1]));//1
+	///*第二个元素的大小*/
+
+	//printf("%d\n", sizeof(&arr));//4
+	///*数组的地址*/
+
+	//printf("%d\n", sizeof(&arr + 1));//4
+	///*数组最后一个元素后面的地址*/
+
+	//printf("%d\n", sizeof(&arr[0] + 1));//4
+	///*第二个元素的地址*/
+
+	//printf("%d\n", strlen(arr));
+	///*strlen函数寻找\0找到后停下来并计算字符串大小*/
+
+	//printf("%d\n", strlen(arr + 0));
+	///*和上一个一样*/
+
+	//printf("%d\n", strlen(*arr));
+	///*传入了不合法地址*/
+
+	//printf("%d\n", strlen(arr[1]));
+	///*传入了不合法地址*/
+
+	//printf("%d\n", strlen(&arr));
+	///*先取出了数组地址，然后强制类型转换为首元素地址*/
+
+	//printf("%d\n", strlen(&arr + 1));
+	///*随机值-6*/
+
+	//printf("%d\n", strlen(&arr[0] + 1));
+	///*随机值-1*/
+
+	//char arr[] = "abcdef";
+	////[a b c d e f \0]
+
+	//printf("%d\n", sizeof(arr));//7
+	///*整个字符串的大小包含\0*/
+
+	//printf("%d\n", sizeof(arr + 0));//4
+	///*数组首元素的地址4个byte*/
+
+	//printf("%d\n", sizeof(*arr));//1
+	///*数组首元素的大小*/
+
+	//printf("%d\n", sizeof(arr[1]));//1
+	///*数组第二个元素的大小*/
+
+	//printf("%d\n", sizeof(&arr));//4
+	///*整个数组地址的大小*/
+
+	//printf("%d\n", sizeof(&arr + 1));//4
+	///*\0后面的地址的大小*/
+
+	//printf("%d\n", sizeof(&arr[0] + 1));//4
+	///*第二个元素的地址*/
+
+	//char arr[] = "abcdef";
+	//printf("%d\n", strlen(arr));//6
+	///*字符串长度\0结束*/
+
+	//printf("%d\n", strlen(arr + 0));//6
+	///*从第一个元素地址切入*/
+
+	//printf("%d\n", strlen(*arr));//error
+	///*非法地址*/
+
+	//printf("%d\n", strlen(arr[1]));//error
+	///*非法地址*/
+
+	//printf("%d\n", strlen(&arr));//6
+	///*先取出了数组地址，然后强制类型转换为首元素地址*/
+
+	//printf("%d\n", strlen(&arr + 1));//随机
+	///*从数组最后一个元素后的第一个地址开始寻找\0*/
+
+	//printf("%d\n", strlen(&arr[0] + 1));//5
+	///*从第二个元素开始*/
+
+	//char* p = "abcdef";
+	///*一个指针指向一个字符串*/
+
+	//printf("%d\n", sizeof(p));//4
+	///*地址*/
+
+	//printf("%d\n", sizeof(p + 1));//4
+	///*改地址后的一个地址*/
+
+	//printf("%d\n", sizeof(*p));//1
+	///*字符串第一个元素的地址*/
+
+	//printf("%d\n", sizeof(p[0]));//1
+	///*字符串第一个元素的大小*/
+
+	//printf("%d\n", sizeof(&p));//4
+	///*取出了存放该指针的地址*/
+
+	//printf("%d\n", sizeof(&p + 1));//4
+	///*取出了存放该指针的地址之后的地址*/
+
+	//printf("%d\n", sizeof(&p[0] + 1));//4
+	///*取出了字符串第二个元素的地址*/
+
+	//printf("%d\n", strlen(p));//6
+	///*从第一个元素字符串长度*/
+
+	//printf("%d\n", strlen(p + 1));//5
+	///*从第二个元素字符串长度*/
+
+	//printf("%d\n", strlen(*p));//error
+	///*非法地址*/
+
+	//printf("%d\n", strlen(p[0]));//error
+	///*非法地址*/
+
+	//printf("%d\n", strlen(&p));//随机值1
+	///*取出了指针p的地址*/
+
+	//printf("%d\n", strlen(&p + 1));//随机值2
+	///*取出了指针p后四个字节之后的地址*/
+
+	//printf("%d\n", strlen(&p[0] + 1));//5
+	///*从第二个元素字符串长度*/
+//	return 0;
+//}

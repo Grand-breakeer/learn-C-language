@@ -1,0 +1,6 @@
+﻿  20220908.c
+D:\code\指针进阶\20220908.c(1056,26): warning C4047: “函数”:“const char *”与“char **”的间接级别不同
+D:\code\指针进阶\20220908.c(1056,24): warning C4024: “strlen”: 形参和实参 1 的类型不同
+D:\code\指针进阶\20220908.c(1057,30): warning C4047: “函数”:“const char *”与“char **”的间接级别不同
+D:\code\指针进阶\20220908.c(1057,27): warning C4024: “strlen”: 形参和实参 1 的类型不同
+  指针进阶.vcxproj -> D:\code\指针进阶\Debug\指针进阶.exe
