@@ -72,21 +72,60 @@
 
 
 //由于还没学习结构体，这里告知结构体的大小是20个字节
-struct Test
-{
-    int Num;
-    char* pcName;
-    short sDate;
-    char cha[2];
-    short sBa[4];
-}*p;
-//假设p 的值为0x100000。 如下表表达式的值分别为多少？
-//已知，结构体Test类型的变量大小是20个字节
+//struct Test
+//{
+//    int Num;
+//    char* pcName;
+//    short sDate;
+//    char cha[2];
+//    short sBa[4];
+//}*p;
+////假设p 的值为0x100000。 如下表表达式的值分别为多少？
+////已知，结构体Test类型的变量大小是20个字节
+//int main()
+//{
+//    printf("%p\n", p + 0x1);//指针加一看步长确定地址变化
+//    printf("%p\n", (unsigned long)p + 0x1);//强制类型转化为ul是长整型加一就是加一
+//    printf("%p\n", (unsigned int*)p + 0x1);//整型指针步长是四加一就是加四
+//    return 0;
+//}
+//14   1    4
+
+//int main()
+//{
+//    int a[4] = { 1, 2, 3, 4 };
+//    int* ptr1 = (int*)(&a + 1);
+//    int* ptr2 = (int*)((int)a + 1);//小端存储指针被转化为整型+1后再
+//    //强制转化为int指针指向第一个元素四个字节的第二个由于是小端存储第一个字节存01第二个为00
+//    //再对其解应用访问从第二个字节后的四个字节00 00 00 02（小端存储）
+//    printf("%x,%x", ptr1[-1], *ptr2);
+//    return 0;
+//}
+
+//int main()
+//{
+//    int a[3][2] = { (0, 1), (2, 3), (4, 5) };//逗号表达式
+//    int* p;
+//    p = a[0];
+//    printf("%d", p[0]);
+//    return 0;
+//}
+
+//int main()
+//{
+//    int a[5][5];
+//    int(*p)[4];
+//    p = a;
+//    printf("%p,%d\n", &p[4][2] - &a[4][2], &p[4][2] - &a[4][2]);
+//    //p[4][2]可以解释为*（*（p+4）+2） 指针相减表示二者之间的元素个数
+//    return 0;
+//}
+
 int main()
 {
-    printf("%p\n", p + 0x1);
-    printf("%p\n", (unsigned long)p + 0x1);
-    printf("%p\n", (unsigned int*)p + 0x1);
+    int aa[2][5] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    int* ptr1 = (int*)(&aa + 1);
+    int* ptr2 = (int*)(*(aa + 1));
+    printf("%d,%d", *(ptr1 - 1), *(ptr2 - 1));//10 5
     return 0;
 }
-//14   1    4
