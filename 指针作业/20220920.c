@@ -202,3 +202,36 @@ p=malloc
 //	}
 //	return 0;
 //}
+
+//void my_getword(char* x,char* z, int y)
+//{
+//	int ret = 0;
+//	while (*x != ' '&&ret<y)
+//	{
+//		*z = *x;
+//		z++;
+//		x++;
+//		ret++;
+//	}
+//	*(z + 1) = '\0';
+//}
+//
+//int main()
+//{
+//	char arr1[40] = "";
+//	char arr[40] = "";
+//	gets(arr1);
+//	int l = strlen(arr1);
+//	my_getword(arr1,arr, l);
+//	
+//	return 0;
+//}
+
+//
+//int main()
+//{
+//	char arr1[20] = "AABCD";
+//	char arr2[] = "BCDAA";
+//
+//	return 0;
+//}
