@@ -235,3 +235,58 @@ p=malloc
 //
 //	return 0;
 //}
+
+//int is_string_rotate(char* str1, char* str2)
+//{
+//	if (strlen(str1) != strlen(str2))
+//	{
+//		return 0;
+//	}
+//	//1.str1字符串后面追加一个str1
+//	//AABCDAABCD
+//	int len = strlen(str1);
+//	strncat(str1, str1, len);
+//	//2.判断str2是否为str1的子串
+//	strstr(str1, str2);
+//	char* ret = strstr(str1, str2);
+//
+//	return ret != NULL;
+//}
+//
+//
+//int main()
+//{
+//	char arr1[20] = "AABCD";//扩大空间
+//	//AABCD
+//	//BCDAA
+//	//CDAAB
+//	//DAABC
+//	//AABCD
+//	//AABCDAABCD双倍延长字符串
+//	//在其中寻找子串
+//
+//	char arr2[] = "BCDAA";
+//	
+//
+//	int ret = is_string_rotate(arr1, arr2);
+//	if (ret == 1)
+//	{
+//		printf("yes\n");
+//	}
+//	else
+//	{
+//		printf("no\n");
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	char arr[20] = "hello ";
+//	//strcat(arr, "bit");//追加字符串
+//	//strcat(arr, arr);//不可用于自己追加
+//	strncat(arr, arr, 5);//可以用该函数指定长度字符串追加
+//	printf("%s\n", arr);
+//	return 0;
+//}
+
