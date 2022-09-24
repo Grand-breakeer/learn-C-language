@@ -1,0 +1,4 @@
+﻿  20220924.c
+D:\code\相关函数实现\20220924.c(116,12): warning C4133: “return”: 从“int *”到“char *”的类型不兼容
+D:\code\相关函数实现\20220924.c(107,1): warning C4133: “初始化”: 从“char *”到“int *”的类型不兼容
+  相关函数实现.vcxproj -> D:\code\相关函数实现\x64\Debug\相关函数实现.exe
