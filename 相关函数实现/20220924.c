@@ -7,6 +7,7 @@
 #include<math.h>
 #include<assert.h>
 #include<stdlib.h>
+#include<errno.h>
 
 //strlen函数求字符串长度
 //1.计数器版本
@@ -274,5 +275,137 @@
 //	int ret = strncmp(p, q, 3);
 //	printf("%d\n", ret);
 //
+//	return 0;
+//}
+
+//strstr查找第一次出现所寻找字符串，并返回首地址，未找到返回空指针
+
+//char* my_strstr(const char* str1, const char* str2)
+//{
+//	assert(str1 && str2);
+//
+//	if (*str2 == '\0')
+//	{
+//		return (char*)str1;
+//	}
+//	while (*str1)
+//	{
+//		if (*str1 == *str2)
+//		{
+//			const char* s1 = str1;
+//			const char* s2 = str2;
+//			while (*s2&&*s1==*s2)
+//			{
+//				s1++;
+//				s2++;
+//				if (*s2 == '\0')
+//				{
+//					return (char*)str1;
+//				}
+//			}
+//		}
+//		str1++;
+//	}
+//
+//	return NULL;
+//}
+//
+//char* pg_strstr(const char* str1, const char* str2)
+//{
+//	assert(str1 && str2);
+//
+//	const char* s1 = NULL;
+//	const char* s2 = NULL;
+//	const char* cp = str1;
+//
+//	if (*str2 == '\0')
+//	{
+//		return (char*)str1;
+//	}
+//
+//	while (*cp)
+//	{
+//		s1 = cp;
+//		s2 = str2;
+//		while (*s1 && *s2 && (*s1 == *s2))
+//		{
+//			s1++;
+//			s2++;
+//		}
+//		if (*s2 == '\0')
+//		{
+//			return (char*)cp;
+//		}
+//		cp++;
+//	}
+//	return NULL;
+//
+//}
+//
+//int main()
+//{
+//	char arr1[] = "abbcdefabcdef";
+//	char arr2[] = "bcd";
+//
+//	char* ret = pg_strstr(arr1, arr2);
+//	if (ret == NULL)
+//	{
+//		printf("没找到\n");
+//	}
+//	else
+//	{
+//		printf("找到了:%s\n", ret);
+//	}
+//
+//	return 0;
+//}
+
+//KMP算法——字符串查找算法
+
+//strtok切割字符串函数
+
+//int main()
+//{
+//	char arr[] = "zpw@bitedu.tech";
+//	char* p = "@.";
+//	char tmp[20] = {0};
+//	strcpy(tmp, arr);
+//
+//	char* ret = NULL;
+//	for (ret = strtok(tmp, p); ret != NULL; ret = strtok(NULL, p))
+//	{
+//		//static使函数具有记忆功能
+//		printf("%s\n", ret);
+//	}
+//
+//	//ret=strtok(tmp, p);
+//	//printf("%s\n", ret);
+//	//ret=strtok(NULL, p);
+//	//printf("%s\n", ret);
+//	//ret=strtok(NULL, p);
+//	//printf("%s\n", ret);
+//	return 0;
+//}
+
+//strerror
+//实用库函数的时候
+//调用库函数失败的是，都会设置错误码，错误码返回int errno
+//此时就可以用strerror解析错误码,翻译错误信息
+//int main()
+//{
+//	//printf("%s\n", strerror(0));
+//	//printf("%s\n", strerror(1));
+//	//printf("%s\n", strerror(2));
+//	//printf("%s\n", strerror(3));
+//	//printf("%s\n", strerror(4));
+//	//printf("%s\n", strerror(5));
+//
+//	FILE* pf = fopen("test.txt", "r");
+//	if (pf == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//	}
+//	fclose(pf);
+//	pf = NULL;
 //	return 0;
 //}
