@@ -132,65 +132,141 @@
 //如果嵌套了结构体，则嵌套结构体对齐到它最大对齐数的整数倍处
 //此时结构体的大小就是包含嵌套结构体内所有最大对齐数的整数倍
 
-struct S {
-	int i;
-	char c;
-};
-
-struct S2 {
-	char c1;
-	int i;
-	char c2;
-};
-
-struct S3 {
-	char c1;
-	int i;
-	double d;
-};
-
-struct S4 {
-	char c1;
-	char c2;
-	int i;
-};
-
-struct S5 {
-	int d;
-	char c;
-	int i;
-};
-
-struct S6 {
-	char c1;
-	struct S5 s5;
-	double d;
-};
-
-int main()
-{
-	struct S s = { 0 };
-	printf("%d\n", sizeof(s));//8
-
-	struct S2 s2 = { 0 };
-	printf("%d\n", sizeof(s2));//12
-
-	struct S3 s3 = { 0 };
-	printf("%d\n", sizeof(s3));//16
-
-	struct S4 s4 = { 0 };
-	printf("%d\n", sizeof(s4));//8
-
-	struct S5 s5;
-	printf("%d\n", sizeof(s5));//16
-
-	struct S6 s6;
-	printf("%d\n", sizeof(s6));//24
-	return 0;
-}
+//struct S {
+//	int i;
+//	char c;
+//};
+//
+//struct S2 {
+//	char c1;
+//	int i;
+//	char c2;
+//};
+//
+//struct S3 {
+//	char c1;
+//	int i;
+//	double d;
+//};
+//
+//struct S4 {
+//	char c1;
+//	char c2;
+//	int i;
+//};
+//
+//struct S5 {
+//	int d;
+//	char c;
+//	int i;
+//};
+//
+//struct S6 {
+//	char c1;
+//	struct S5 s5;
+//	double d;
+//};
+//
+//int main()
+//{
+//	struct S s = { 0 };
+//	printf("%d\n", sizeof(s));//8
+//
+//	struct S2 s2 = { 0 };
+//	printf("%d\n", sizeof(s2));//12
+//
+//	struct S3 s3 = { 0 };
+//	printf("%d\n", sizeof(s3));//16
+//
+//	struct S4 s4 = { 0 };
+//	printf("%d\n", sizeof(s4));//8
+//
+//	struct S5 s5;
+//	printf("%d\n", sizeof(s5));//16
+//
+//	struct S6 s6;
+//	printf("%d\n", sizeof(s6));//24
+//	return 0;
+//}
 
 //为何要存在内存对齐
 // 1.平台原因(移植原因)：不是所有的硬件平台都能访问任意地址上的任意数据的；
 // 某些硬件平台只能在某些地址处取某些特定类型的数据，否则抛出硬件异常。 
 //2.性能原因：数据结构(尤其是栈)应该尽可能地在自然边界上对齐。
 /*方便读取，所以拿空间换取时间*/
+
+//通过调整顺序减少内存浪费
+//空间小的字节尽量集合在一起
+
+//修改默认对齐数
+//把默认对齐数改为2
+
+//#include<stddef.h>
+////#pragma pack(1)//8//2//1
+//struct S
+//{
+//	char c1;
+//	int i;
+//	char c2;
+//};
+//
+//int main()
+//{
+//	printf("%d\n", sizeof(struct S));//12//8//6
+//
+//	printf("%d\n", offsetof(struct S, c1));
+//	printf("%d\n", offsetof(struct S, i));
+//	printf("%d\n", offsetof(struct S, c2));
+//	return 0;
+//}
+
+//offsetof宏的实现，计算某成员相对于起始成员的偏移量
+
+//结构体传参数
+
+//struct S {
+//	int data[1000];
+//	int num;
+//};
+//
+//struct S s = { {1,2,3,4},1000 };
+//
+//void print1(struct S s)
+//{
+//	printf("%d\n", s.num);
+//}
+//
+//void print2(struct S* ps)
+//{
+//	printf("%d\n", ps->num);
+//}
+//
+//int main()
+//{
+//	print1(s);
+//	print2(&s);
+//	return 0;
+//}
+
+//传参的时候会压栈，建议结构体传参传地址
+
+//C语言位段的概念，依附于结构体
+
+//位段成员必须是，int ,unsigned int ,signed int
+//位段成员名后面必须有冒号数字
+
+//比如
+
+struct A {
+
+	int _a : 2;//_a成员占两个bit位
+	int _b : 5;//_b成员占5个bit位
+	int _c : 10;//_c成员占10个bit位
+	int _d: 30;//_d成员占30个bit位
+};
+
+int main()
+{
+	printf("%d\n", sizeof(struct A));//8
+	return 0;
+}
