@@ -257,16 +257,108 @@
 
 //比如
 
-struct A {
+//struct A {
+//
+//	int _a : 2;//_a成员占两个bit位
+//	int _b : 5;//_b成员占5个bit位
+//	int _c : 10;//_c成员占10个bit位
+//	int _d: 30;//_d成员占30个bit位
+//};
+//
+//int main()
+//{
+//	printf("%d\n", sizeof(struct A));//8
+//	return 0;
+//}
 
-	int _a : 2;//_a成员占两个bit位
-	int _b : 5;//_b成员占5个bit位
-	int _c : 10;//_c成员占10个bit位
-	int _d: 30;//_d成员占30个bit位
+//位段有很多不确定因素，所以注重可移植性的程序应该避免使用位段
+
+//struct S {
+//	char a : 3;
+//	char b : 4;
+//	char c : 5;
+//	char d : 6;
+//};
+//int main() {//仅仅适配VS
+//	struct S s = { 0 };//观察位段的空间分配
+//	s.a = 10;
+//	s.b = 12;
+//	s.c = 3;
+//	s.d = 4;
+//	return 0;
+//}
+
+//位段中的int是被当为有符号还是无符号是不确定的
+//位段中的最大位数不确定
+//位段中的成员在内存中从左向右分配还是从右向左分配是不确定的
+//当一个结构体包含两个位段，第二个位段成员比较大，无法容纳于第一个位段剩余的位是，是舍弃还是运用是不确定的
+//位段相对于结构体可以节省空间但是可移植性很差
+//
+
+
+//枚举类型
+//枚举类型的定义
+
+//enum Color {
+//	//颜色
+//	red,//枚举类型的可能取值，是一种常量类型
+//	green,
+//	blue
+//};
+//int main()
+//{
+//	//cpp语法检查更加严格
+//	enum Color c = blue;
+//	printf("%d\n", red);
+//	printf("%d\n", green);
+//	printf("%d\n", blue);
+//	return 0;
+//}
+
+void menu()
+{
+	printf("**********************************");
+	printf("********1.add     2.sub***********");
+	printf("********3.mul     4.div***********");
+	printf("*************0.exit***************");
+}
+enum Option {
+	EXIT,
+	ADD,
+	SUB,
+	MUL,
+	DIV
 };
 
 int main()
 {
-	printf("%d\n", sizeof(struct A));//8
+	int input = 0;
+	do {
+		menu;
+		printf("请选择:>");
+		scanf("%d", &input);
+		switch(input) {
+		case ADD:
+			break;
+		case SUB:
+			break;
+		case MUL:
+			break;
+		case DIV:
+			break;
+		case EXIT:
+			break;
+		default:
+			break;
+		}
+	} while (input);
 	return 0;
 }
+//枚举的优点
+//1.增加代码的可读性和可维护性
+//2.性对于define定义的标识符枚举类型有类型检查，更加严谨
+//3.便于调试
+//4.防止命名污染
+//使用方便可以一次性定义多个常量
+
+//枚举定义的常量是int型
