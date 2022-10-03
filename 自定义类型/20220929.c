@@ -315,45 +315,45 @@
 //	return 0;
 //}
 
-void menu()
-{
-	printf("**********************************");
-	printf("********1.add     2.sub***********");
-	printf("********3.mul     4.div***********");
-	printf("*************0.exit***************");
-}
-enum Option {
-	EXIT,
-	ADD,
-	SUB,
-	MUL,
-	DIV
-};
-
-int main()
-{
-	int input = 0;
-	do {
-		menu;
-		printf("请选择:>");
-		scanf("%d", &input);
-		switch(input) {
-		case ADD:
-			break;
-		case SUB:
-			break;
-		case MUL:
-			break;
-		case DIV:
-			break;
-		case EXIT:
-			break;
-		default:
-			break;
-		}
-	} while (input);
-	return 0;
-}
+//void menu()
+//{
+//	printf("**********************************");
+//	printf("********1.add     2.sub***********");
+//	printf("********3.mul     4.div***********");
+//	printf("*************0.exit***************");
+//}
+//enum Option {
+//	EXIT,
+//	ADD,
+//	SUB,
+//	MUL,
+//	DIV
+//};
+//
+//int main()
+//{
+//	int input = 0;
+//	do {
+//		menu;
+//		printf("请选择:>");
+//		scanf("%d", &input);
+//		switch(input) {
+//		case ADD:
+//			break;
+//		case SUB:
+//			break;
+//		case MUL:
+//			break;
+//		case DIV:
+//			break;
+//		case EXIT:
+//			break;
+//		default:
+//			break;
+//		}
+//	} while (input);
+//	return 0;
+//}
 //枚举的优点
 //1.增加代码的可读性和可维护性
 //2.性对于define定义的标识符枚举类型有类型检查，更加严谨
@@ -362,3 +362,60 @@ int main()
 //使用方便可以一次性定义多个常量
 
 //枚举定义的常量是int型
+
+//联合（共用体）
+//联合也是特殊的自定义类型
+//它的成员完全可能公用同一块空间
+//至少是最大成员的大小
+//在同一时间只能使用其中的一个成员
+//union Un
+//{
+//	char c;
+//	int i;
+//};
+//int main()
+//{
+//	union Un u;//联合体变量
+//	printf("%p\n", &u);
+//	printf("%p\n", &(u.c));
+//	printf("%p\n", &(u.i));//i与c共用了同一块空间
+//	printf("%d\n", sizeof(u));
+//	return 0;
+//}
+
+//利用联合体判断机器大小端存储
+
+//int check_sys()
+//{
+//	int a = 1;
+//	if (*(char*)&a == 1) {
+//		return 1;
+//	}
+//	else {
+//		return 0;;
+//	}
+//}
+int check_sys()
+{
+	union U {
+		char c;
+		int i;
+	}u;
+	u.i = 1;
+	return u.c;
+	//返回以就是小端
+	//返回0就是大端
+}
+
+int main()
+{
+	int ret = check_sys();
+	if (ret == 1)
+	{
+		printf("小端");
+	}
+	else {
+		printf("大端");
+	}
+	return 0;
+}
