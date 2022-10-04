@@ -395,27 +395,40 @@
 //		return 0;;
 //	}
 //}
-int check_sys()
-{
-	union U {
-		char c;
-		int i;
-	}u;
-	u.i = 1;
-	return u.c;
-	//返回以就是小端
-	//返回0就是大端
-}
+//int check_sys()
+//{
+//	union U {
+//		char c;
+//		int i;
+//	}u;
+//	u.i = 1;
+//	return u.c;
+//	//返回以就是小端
+//	//返回0就是大端
+//}
+//
+//int main()
+//{
+//	int ret = check_sys();
+//	if (ret == 1)
+//	{
+//		printf("小端");
+//	}
+//	else {
+//		printf("大端");
+//	}
+//	return 0;
+//}
 
-int main()
-{
-	int ret = check_sys();
-	if (ret == 1)
-	{
-		printf("小端");
-	}
-	else {
-		printf("大端");
-	}
-	return 0;
-}
+//联合体的计算
+//union Un {
+//	short a[5];//5
+//	double i;
+//};//联合体也存在内存对齐的情况
+////联合体至少是最大成员的大小，同时也必须是最大对齐数的整数倍
+//int main()
+//{
+//	union Un u;
+//	printf("%d\n", sizeof(u));
+//	return 0;
+//}
