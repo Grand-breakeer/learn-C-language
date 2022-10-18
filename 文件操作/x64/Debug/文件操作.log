@@ -1,2 +1,4 @@
 ﻿  20221017.c
+D:\code\文件操作\20221017.c(138,21): warning C4047: “函数”:“const char *”与“FILE *(__cdecl *)(const char *,const char *)”的间接级别不同
+D:\code\文件操作\20221017.c(138,16): warning C4024: “perror”: 形参和实参 1 的类型不同
   文件操作.vcxproj -> D:\code\文件操作\x64\Debug\文件操作.exe
