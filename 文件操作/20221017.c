@@ -147,3 +147,89 @@
 //    pf = NULL;
 //    return 0;
 //}
+
+//struct S
+//{
+//    char arr[10];
+//    int num;
+//    float sc;
+//};
+//
+//int main()
+//{
+//    struct S s = {0};
+//    //对格式化的数据写文件
+//    FILE* pf = fopen("test.dat", "r");
+//    if (pf == NULL)
+//    {
+//        perror("fopen");
+//        return 1;
+//    }
+//    //写文件
+//    //fprintf(pf, "%s %d %f", s.arr, s.num, s.sc);
+//    fscanf(pf, "%s %d %f", s.arr, &(s.num), &(s.sc));
+//
+//    printf("%s %d %f", s.arr, s.num, s.sc);
+//    //关闭文件
+//    fclose(pf);
+//    pf = NULL;
+//    return 0;
+//}
+
+//二进制的读写
+
+//写入
+//struct S
+//{
+//    char arr[10];
+//    int num;
+//    float sc;
+//};
+//
+//
+//int main()
+//{
+//    struct S s = { "abcdef",10,5.5f };
+//    //二进制的形式写
+//    FILE* pf = fopen("test.dat", "w");
+//    if (pf == NULL)
+//    {
+//        perror("fopen");
+//        return 1;
+//    }
+//    //写文件
+//    fwrite(&s, sizeof(struct S), 1, pf);
+//    //关闭文件
+//    fclose(pf);
+//    pf = NULL;
+//    return 0;
+//}
+
+//读取
+struct S
+{
+    char arr[10];
+    int num;
+    float sc;
+};
+
+
+int main()
+{
+    struct S s = { 0 };
+    //二进制的形式写
+    FILE* pf = fopen("test.dat", "r");
+    if (pf == NULL)
+    {
+        perror("fopen");
+        return 1;
+    }
+    //写文件
+    fread(&s, sizeof(struct S), 1, pf);
+
+    printf("%s %d %f", s.arr, s.num, s.sc);
+    //关闭文件
+    fclose(pf);
+    pf = NULL;
+    return 0;
+}

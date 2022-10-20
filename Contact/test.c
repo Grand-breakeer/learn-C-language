@@ -18,6 +18,10 @@
 //2.当空间满了以后增加两个空间
 //
 
+//版本3
+//当通讯录退出的时候，把信息写入文件
+//当通讯录初始化的时候加载文件信息到通讯录中
+
 
 void menu()
 {
@@ -77,6 +81,8 @@ int main()
 			PrintContact(&con);
 			break;
 		case EXIT:
+			//保存信息到通讯录
+			// SaveContact
 			//销毁通讯录
 			DestoryContact(&con);
 			printf("退出\n");
